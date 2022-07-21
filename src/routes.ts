@@ -4,5 +4,5 @@ export const defineRoutes = (app) => {
   app.get("/", itsWorks)
   app.get("/todo", getTODO)
   app.get("/movie", getMovie)
-  app.get("/movie", getLogin)
+  app.get("/login", getLogin)
 }
