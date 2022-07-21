@@ -10,12 +10,13 @@ export const getTODO = (request, response) => {
 }
 
 export const getMovie = (request, response) => {
-  const repositoryMovie = getRepository(ToDo)
-  return response.json({ movie: repositoryMovie })
+  const movieRepository = getRepository(ToDo)
+  const movie = movieRepository.find()
+  return response.json(movie)
 }
 
 export const getLogin = (request, response) => {
   const repositoryLogin = getRepository(ToDo)
   const login = repositoryLogin.findOne()
-  return response.json({ login: [] })
+  return response.json(login)
 }
