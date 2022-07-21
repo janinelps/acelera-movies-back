@@ -1,9 +1,9 @@
 import { getRepository } from "typeorm"
-import { ToDo } from "@models/entity/ToDo"
+import { Movie } from "@models/entity/Movie"
 
 export const getMovie = (request, response) => {
   try {
-    const movieRepository = getRepository(ToDo)
+    const movieRepository = getRepository(Movie)
     const movie = movieRepository.find()
     return response.status(200).json(movie)
   } catch (error) {
