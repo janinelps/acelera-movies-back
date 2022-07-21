@@ -1,4 +1,6 @@
-import { getLogin, getMovie, getTODO, itsWorks } from "@controllers/todo"
+import { getTODO, itsWorks } from "@controllers/todo"
+import { getMovie } from "@controllers/movie"
+import { getLogin } from "@controllers/login"
 
 export const defineRoutes = (app) => {
   app.get("/", itsWorks)
