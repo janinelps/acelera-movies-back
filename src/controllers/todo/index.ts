@@ -9,3 +9,6 @@ export const getTODO = (request, response) => {
 export const getMovie = (require, response) => {
   return response.json({ movie: [] })
 }
+export const getLogin = (require, response) => {
+  return response.json({ movie: [] })
+}
