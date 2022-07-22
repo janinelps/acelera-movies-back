@@ -12,8 +12,12 @@ export const getMovie = async (request, response) => {
 }
 
 export const getMovieId = async (request, response) => {
-  const { id } = request.params
-  const repositoryMovie = getRepository(Movie)
-  const movie = await repositoryMovie.findOne(id)
-  return response.json({ movie })
+  try {
+    const { id } = request.params
+    const repositoryMovie = getRepository(Movie)
+    const movie = await repositoryMovie.findOne(id)
+    return response.json({ movie })
+  } catch (error) {
+    return response.status(500).json(error)
+  }
 }
