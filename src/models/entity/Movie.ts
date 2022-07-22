@@ -4,6 +4,7 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   CreateDateColumn,
+  UpdateDateColumn,
 } from "typeorm"
 
 @Entity()
@@ -60,8 +61,12 @@ export class Movie {
     onUpdate: "CURRENT_TIMESTAMPTZ(6)",
   })
   createdAt: Date
+
+  @UpdateDateColumn({
+    name: "updated_at",
+    type: "timestamptz",
+    default: () => "CURRENT_TIMESTAMPTZ(6)",
+    onUpdate: "CURRENT_TIMESTAMPTZ(6)",
+  })
+  updateAt: Date
 }
-
-/* id: number,
-
-   note: number*/
