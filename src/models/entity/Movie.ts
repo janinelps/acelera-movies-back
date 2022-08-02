@@ -15,7 +15,7 @@ export class Movie {
   @Column({ name: "title", type: "varchar" })
   title: String
 
-  @Column({ name: "gender", type: "varchar" })
+  @Column({ name: "gender", type: "varchar", nullable: true })
   gender: String
 
   @Column({ name: "classification", type: "varchar" })
@@ -27,9 +27,9 @@ export class Movie {
   @Column({ name: "image", type: "varchar" })
   image: String
 
-  @Column({ name: "releaseDate", type: "timestamptz" })
+  @Column({ name: "release_date", type: "timestamptz" })
   @IsDate()
-  releaseDate: String
+  releaseDate: Date
 
   @Column({ name: "director", type: "varchar" })
   director: String
@@ -40,14 +40,14 @@ export class Movie {
   @Column({ name: "studio", type: "varchar" })
   studio: String
 
-  @Column({ name: "actors", type: "varchar" })
+  @Column({ name: "actors", type: "varchar", nullable: true })
   actors: string
   //actors: [Actor]
 
   @Column({ name: "resume", type: "varchar" })
   resume: String
 
-  @Column({ name: "awards", type: "varchar" })
+  @Column({ name: "awards", type: "varchar", nullable: true })
   awards: String
   //awards: [Awards]
 

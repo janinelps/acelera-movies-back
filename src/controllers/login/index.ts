@@ -10,3 +10,15 @@ export const getLogin = async (request, response) => {
     return response.status(500).json(error)
   }
 }
+
+export const postLogin = async (request, response) => {
+  try {
+    const { email, password } = request.body
+    const repositoryLogin = getRepository(Login)
+    const createLogin = repositoryLogin.create({ email, password })
+    const saveLogin = await repositoryLogin.save(createLogin)
+    return response.status(200).json(saveLogin)
+  } catch (error) {
+    return response.status(500).json(error)
+  }
+}

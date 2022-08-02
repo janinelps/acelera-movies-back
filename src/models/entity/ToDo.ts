@@ -7,7 +7,4 @@ export class ToDo {
 
   @Column({ name: "name", type: "varchar" })
   name: String
-
-  @Column({ name: "password", type: "varchar" })
-  password: String
 }
