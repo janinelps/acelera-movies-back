@@ -6,16 +6,26 @@ import {
   deleteMoveId,
   upDateMovie,
 } from "@controllers/movie"
-import { getLogin, postLogin } from "@controllers/login"
+import {
+  deleteLogin,
+  getLogin,
+  getLoginId,
+  postLogin,
+  updateLogin,
+} from "@controllers/login"
 
 export const defineRoutes = (app) => {
   app.get("/", itsWorks)
   app.get("/todo", getTODO)
   app.get("/movie", getMovie)
-  app.get("/login", getLogin)
   app.get("/movie/:id", getMovieId)
   app.post("/movie", postMovie)
-  app.post("/login", postLogin)
-  app.delete("/movie/:id", deleteMoveId)
   app.put("/movie/:id", upDateMovie)
+  app.delete("/movie/:id", deleteMoveId)
+
+  app.get("/login", getLogin)
+  app.get("/login/:id", getLoginId)
+  app.post("/login", postLogin)
+  app.put("/login/:id", updateLogin)
+  app.delete("/login/:id", deleteLogin)
 }
