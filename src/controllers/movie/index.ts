@@ -55,3 +55,14 @@ export const postMovie = async (request, response) => {
     return response.status(500).json(error)
   }
 }
+
+export const deleteMoveId = async (request, response) => {
+  try {
+    const { id } = request.params
+    const repositoryMovie = getRepository(Movie)
+    const deleteMovie = await repositoryMovie.delete(id)
+    return response.status(200).json(deleteMovie)
+  } catch (error) {
+    response.status(500).json(error)
+  }
+}
