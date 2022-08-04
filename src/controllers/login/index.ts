@@ -23,9 +23,9 @@ export const getLoginId = async (request, response) => {
 
 export const postLogin = async (request, response) => {
   try {
-    const { login, password } = request.body
+    const { email, password } = request.body
     const repositoryLogin = getRepository(Login)
-    const createLogin = repositoryLogin.create({ login, password })
+    const createLogin = repositoryLogin.create({ email, password })
     const saveLogin = await repositoryLogin.save(createLogin)
     return response.status(200).json(saveLogin)
   } catch (error) {
@@ -49,10 +49,10 @@ export const deleteLogin = async (request, response) => {
 export const updateLogin = async (request, response) => {
   try {
     const { id } = request.params
-    const { login, password } = request.body
+    const { email, password } = request.body
     const loginRepository = getRepository(Login)
     const loginId = await loginRepository.findOne(id)
-    if (login) loginId.login = login
+    if (email) loginId.email = email
     if (password) loginId.password = password
     const saveLogin = loginRepository.save(loginId)
     return response
