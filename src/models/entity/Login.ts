@@ -10,8 +10,8 @@ export class Login {
   @PrimaryGeneratedColumn()
   id: number
 
-  @Column({ name: "login", type: "varchar" })
-  login: String
+  @Column({ name: "email", type: "varchar" })
+  email: String
 
   @Column({ name: "password", type: "varchar" })
   password: String
