@@ -25,7 +25,7 @@ export const postLogin = async (request, response) => {
   try {
     const { login, password } = request.body
     // const repositoryLogin = getRepository(Login)
-    // const createLogin = repositoryLogin.create({ email, password })
+    // const createLogin = repositoryLogin.create({ login, password })
     // const saveLogin = await repositoryLogin.save(createLogin)
     // return response.status(200).json(saveLogin)
     if (login === "teste" && password === "1234")

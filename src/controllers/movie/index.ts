@@ -26,6 +26,7 @@ export const postMovie = async (request, response) => {
   try {
     const {
       title,
+      gender,
       classification,
       subtitle,
       image,
@@ -33,12 +34,15 @@ export const postMovie = async (request, response) => {
       director,
       writer,
       studio,
+      actors,
       resume,
+      awards,
       note,
     } = request.body
     const useRepository = getRepository(Movie)
     const movies = useRepository.create({
       title,
+      gender,
       classification,
       subtitle,
       image,
@@ -46,7 +50,9 @@ export const postMovie = async (request, response) => {
       director,
       writer,
       studio,
+      actors,
       resume,
+      awards,
       note,
     })
     const saveMovie = await useRepository.save(movies)

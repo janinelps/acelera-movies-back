@@ -15,7 +15,7 @@ export class Movie {
   @Column({ name: "title", type: "varchar" })
   title: String
 
-  @Column({ name: "gender", type: "varchar", nullable: true })
+  @Column({ name: "gender", type: "varchar" })
   gender: String
 
   @Column({ name: "classification", type: "varchar" })
@@ -40,7 +40,7 @@ export class Movie {
   @Column({ name: "studio", type: "varchar" })
   studio: String
 
-  @Column({ name: "actors", type: "varchar", nullable: true })
+  @Column({ name: "actors", type: "varchar" })
   actors: string
   //actors: [Actor]
 
