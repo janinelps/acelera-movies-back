@@ -80,6 +80,7 @@ export const upDateMovie = async (request, response) => {
     const { id } = request.params
     const {
       title,
+      gender,
       classification,
       subtitle,
       image,
@@ -87,21 +88,26 @@ export const upDateMovie = async (request, response) => {
       director,
       writer,
       studio,
+      actors,
       resume,
+      awards,
       note,
     } = request.body
 
     const respositoryMovie = getRepository(Movie)
     const movie = await respositoryMovie.findOne(id)
     if (title) movie.title = title
+    if (gender) movie.gender = gender
     if (classification) movie.classification = classification
     if (subtitle) movie.subtitle = subtitle
     if (image) movie.image = image
     if (releaseDate) movie.releaseDate = releaseDate
-    if (director) movie.releaseDate = releaseDate
-    if (writer) movie.releaseDate = releaseDate
-    if (studio) movie.releaseDate = releaseDate
+    if (director) movie.director = director
+    if (writer) movie.writer = writer
+    if (studio) movie.studio = studio
+    if (actors) movie.actors = actors
     if (resume) movie.resume = resume
+    if (awards) movie.awards = awards
     if (note) movie.note = note
 
     const saveMovie = respositoryMovie.save(movie)
