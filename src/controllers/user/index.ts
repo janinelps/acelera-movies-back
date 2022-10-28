@@ -1,5 +1,6 @@
 import { getRepository } from "typeorm"
 import { User } from "@models/entity/User"
+import md5 from "md5"
 
 export const getUser = async (request, response) => {
   try {
@@ -25,7 +26,11 @@ export const postUser = async (request, response) => {
   try {
     const { name, email, password } = request.body
     const repositoryUser = getRepository(User)
-    const createUser = repositoryUser.create({ name, email, password })
+    const createUser = repositoryUser.create({
+      name,
+      email,
+      password: md5(password),
+    })
     const saveUser = await repositoryUser.save(createUser)
     return response
       .status(200)
@@ -59,7 +64,7 @@ export const updateUser = async (request, response) => {
     const userId = await userRepository.findOne(id)
     if (email) userId.email = email
     if (email) userId.name = name
-    if (password) userId.password = password
+    if (password) userId.password = md5(password)
     const saveUser = userRepository.save(userId)
     return response
       .status(200)
